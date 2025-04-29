@@ -2,13 +2,37 @@ document.addEventListener('DOMContentLoaded', () => {
     const projectContainer = document.querySelector('.project-container');
     const leftBtn = document.querySelector('.left-btn');
     const rightBtn = document.querySelector('.right-btn');
+    const projects = document.querySelectorAll('.project-content');
     let currentSlide = 0;
-    const totalSlides = document.querySelectorAll('.project-content').length;
+    const totalSlides = projects.length;
 
-    // Function to update slide position
+    // Function to update slide visibility
     const updateSlide = () => {
-        projectContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+        // Hide all projects
+        projects.forEach(project => {
+            project.classList.remove('active');
+        });
+        
+        // Show current project
+        projects[currentSlide].classList.add('active');
+        
+        // Hide left button on first slide
+        if (currentSlide === 0) {
+            leftBtn.style.display = 'none';
+        } else {
+            leftBtn.style.display = 'flex';
+        }
+
+        // Hide right button on last slide
+        if (currentSlide === totalSlides - 1) {
+            rightBtn.style.display = 'none';
+        } else {
+            rightBtn.style.display = 'flex';
+        }
     };
+
+    // Initialize first project and button visibility
+    updateSlide();
 
     // Right button click handler
     rightBtn.addEventListener('click', () => {

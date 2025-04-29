@@ -585,6 +585,7 @@ html {
 .project-container {
     display: flex;
     transition: transform 0.5s ease;
+    width: 100%;
 }
 
 .project-content {
@@ -594,6 +595,11 @@ html {
     background-color: var(--bg-color);
     border-radius: 16px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+.project-content.active {
+    display: block;
 }
 
 .project-content h2 {
@@ -674,7 +680,15 @@ html {
 /* Mobile Responsive for Slider */
 @media screen and (max-width: 768px) {
     .project-slider {
-        padding: 2rem 3rem;
+        padding: 1rem;
+    }
+
+    .project-content {
+        padding: 1.5rem;
+    }
+
+    .project-content.active {
+        display: block;
     }
 
     .slider-btn {

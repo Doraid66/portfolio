@@ -423,14 +423,29 @@ html {
     .skills {
         padding: 1rem;
         margin: 1rem;
+        max-width: 100%;
+    }
+
+    .skills-container {
+        display: block;
+        width: 100%;
     }
 
     .skill-item {
+        width: 100%;
+        margin-bottom: 1rem;
         padding: 1rem;
     }
 
+    .skill-item:last-child {
+        margin-bottom: 0;
+    }
+
     .skill-bar-fill ul {
+        display: flex;
+        flex-wrap: wrap;
         justify-content: center;
+        gap: 0.5rem;
     }
 
     .skill-bar-fill li {
@@ -440,23 +455,100 @@ html {
 
     .projects {
         padding: 1rem;
+        margin: 1rem;
+        max-width: 100%;
+    }
+
+    .project-slider {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        padding: 1rem;
+    }
+
+    .project-container {
+        display: flex;
+        width: 100%;
     }
 
     .project-content {
-        padding: 1rem;
+        min-width: 100%;
+        padding: 1.5rem;
+        margin: 0;
     }
 
     .project-content h2 {
         font-size: 1.5rem;
+        margin-bottom: 1rem;
     }
 
     .project-content p {
         font-size: 1rem;
+        line-height: 1.5;
+        margin-bottom: 1rem;
     }
 
     .project-content a {
-        padding: 0.6rem 1rem;
+        padding: 0.8rem 1.2rem;
         font-size: 0.9rem;
+    }
+
+    .slider-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 1;
+    }
+
+    .left-btn {
+        left: 10px;
+    }
+
+    .right-btn {
+        right: 10px;
+    }
+
+    .slider-btn i {
+        font-size: 1.2rem;
+    }
+
+    footer {
+        flex-direction: column;
+        padding: 1rem;
+        gap: 2rem;
+    }
+
+    .snakeImg {
+        max-width: 100%;
+        padding: 1rem;
+    }
+
+    .footer-content {
+        max-width: 100%;
+        padding: 1rem;
+        text-align: center;
+    }
+
+    .contact-links {
+        align-items: center;
+    }
+
+    footer h2 {
+        font-size: 1.8rem;
+    }
+
+    .contact-links a {
+        font-size: 1rem;
     }
 }
 

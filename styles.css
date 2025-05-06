@@ -11,6 +11,10 @@
     --skill-bg-color: #39636d;
     --footer-heading-color: #007bff;
     --footer-text-color: #ffffff;
+    --pattern-c1: #414141;
+    --pattern-c2: #bebebe;
+    --pattern-c3: #ffffff;
+    --pattern-size: 200px;
 }
 
 /* Dark theme */
@@ -26,6 +30,10 @@
     --skill-bg-color: #505455;
     --footer-heading-color: #e15638;
     --footer-text-color: #b1b0a6;
+    --pattern-c1: #1d1d1d;
+    --pattern-c2: #4e4f51;
+    --pattern-c3: #3c3c3c;
+    --pattern-size: 200px;
 }
 
 body {
@@ -40,8 +48,68 @@ html {
     scroll-behavior: smooth;
 }
 
+.container {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+}
 
+/* Light theme pattern */
+.container {
+    --s: var(--pattern-size);
+    --c1: var(--pattern-c1);
+    --c2: var(--pattern-c2);
+    --c3: var(--pattern-c3);
+    background: repeating-conic-gradient(
+            from 30deg,
+            #0000 0 120deg,
+            var(--c3) 0 180deg
+        )
+        calc(0.5 * var(--s)) calc(0.5 * var(--s) * 0.577),
+        repeating-conic-gradient(
+            from 30deg,
+            var(--c1) 0 60deg,
+            var(--c2) 0 120deg,
+            var(--c3) 0 180deg
+        );
+    background-size: var(--s) calc(var(--s) * 0.577);
+}
 
+/* Dark theme pattern */
+.dark-theme .container {
+    background: repeating-conic-gradient(
+            from 30deg,
+            #0000 0 120deg,
+            var(--c3) 0 180deg
+        )
+        calc(0.5 * var(--s)) calc(0.5 * var(--s) * 0.577),
+        repeating-conic-gradient(
+            from 30deg,
+            var(--c1) 0 60deg,
+            var(--c2) 0 120deg,
+            var(--c3) 0 180deg
+        );
+    background-size: var(--s) calc(var(--s) * 0.577);
+}
+
+/* Add a semi-transparent overlay to ensure content readability */
+.container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--bg-color);
+    opacity: 0.9;
+    z-index: 0;
+}
+
+/* Ensure content stays above the pattern */
+.container > * {
+    position: relative;
+    z-index: 1;
+}
 
 /* Navbar */
 .navbar {

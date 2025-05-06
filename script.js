@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Theme toggle functionality
-    const themeToggle = document.getElementById('theme-toggle');
+    const themeSwitch = document.querySelector('.input');
     const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
     
     const currentTheme = localStorage.getItem('theme') || 
@@ -55,13 +55,12 @@ document.addEventListener('DOMContentLoaded', () => {
     
     if (currentTheme === 'dark') {
         document.body.classList.add('dark-theme');
-        themeToggle.textContent = '☀️';
+        themeSwitch.checked = true;
     }
     
-    themeToggle.addEventListener('click', () => {
+    themeSwitch.addEventListener('change', () => {
         document.body.classList.toggle('dark-theme');
         const theme = document.body.classList.contains('dark-theme') ? 'dark' : 'light';
         localStorage.setItem('theme', theme);
-        themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
     });
 });
